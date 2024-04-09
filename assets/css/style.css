@@ -1,0 +1,298 @@
+@charset "UTF-8";
+/* Googles Font Link */
+@import url("https://fonts.googleapis.com/css2?family=Tangerine:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+/* Reset Style */
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  font-size: clamp(7px, 0.8vw, 10px);
+}
+
+body {
+  position: relative;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-perspective: 1200px;
+          perspective: 1200px;
+  color: #202648;
+  background: #fafafa;
+  font-size: 1.6rem;
+  font-weight: 400;
+  font-family: "Poppins", sans-serif;
+}
+
+body::before {
+  content: "🎉Click the Book🎉";
+  position: absolute;
+  top: 5%;
+  font-size: 5rem;
+  font-weight: 700;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #d5a20b;
+  -webkit-text-fill-color: transparent;
+  font-style: italic;
+}
+
+@media (max-width: 500px) {
+  body::before {
+    -webkit-text-stroke-width: 0.8px;
+  }
+}
+
+/* Book Style */
+.book {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: relative;
+  height: 30rem;
+  -webkit-backface-visibility: visible;
+          backface-visibility: visible;
+}
+
+.book__controller {
+  position: absolute;
+  top: 0;
+  left: -10rem;
+  width: 20rem;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  -webkit-transition: left .5s ease;
+  transition: left .2s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.book__image {
+  width: 100%;
+  height: 100%;
+}
+
+.book__image img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.book__content--reverse {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.book__title {
+  color: #d5a20b;
+  font-size: 3.3rem;
+  font-weight: 700;
+  font-family: "Tangerine", cursive;
+  text-align: center;
+}
+
+.book__text {
+  text-align: justify;
+  margin: 0.6em 0;
+}
+
+.book__author {
+  display: block;
+  text-align: right;
+  font-size: 0.7em;
+  font-style: italic;
+}
+
+@media (max-width: 500px) {
+  .book__author {
+    font-size: 0.95em;
+  }
+}
+
+/* Common Pages Style */
+.front,
+.back,
+.page1,
+.page2,
+.page3,
+.page4,
+.page5,
+.page6 {
+  overflow: hidden;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  position: absolute;
+  width: 20rem;
+  height: 100%;
+  top: 0;
+  left: -10rem;
+  -webkit-transform-origin: left center;
+          transform-origin: left center;
+  -webkit-transition: left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-box-shadow 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-box-shadow 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55), left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55), left 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-box-shadow 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: 1px solid transparent;
+}
+
+/* Page Content Style */
+.page5,
+.page6 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 2rem;
+}
+
+/* Pages Border Radius Style */
+.front,
+.page1,
+.page3,
+.page5 {
+  border-bottom-right-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+.back,
+.page2,
+.page4,
+.page6 {
+  border-bottom-right-radius: 0.5em;
+  border-top-right-radius: 0.5em;
+}
+
+/* Pages Background Color Style */
+.front,
+.back {
+  background: #202648;
+}
+
+.page1,
+.page2 {
+  background: #efefef;
+}
+
+.page3,
+.page4 {
+  background: #f5f5f5;
+}
+
+.page5 {
+  background: #fafafa;
+}
+
+.page6 {
+  background: #fdfdfd;
+}
+
+/* After Click Effect */
+.book .book__controller:checked {
+  left: -20rem;
+  width: 40rem;
+}
+
+.book .book__controller:checked ~ .front,
+.book .book__controller:checked ~ .back,
+.book .book__controller:checked ~ .page1,
+.book .book__controller:checked ~ .page2,
+.book .book__controller:checked ~ .page3,
+.book .book__controller:checked ~ .page4,
+.book .book__controller:checked ~ .page5,
+.book .book__controller:checked ~ .page6 {
+  left: 0;
+}
+
+.book .book__controller:checked ~ .front {
+  -webkit-transform: rotateY(-160deg) scale(1.1);
+          transform: rotateY(-160deg) scale(1.1);
+  -webkit-box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+}
+
+.book .book__controller:checked ~ .page1 {
+  -webkit-transform: rotateY(-150deg) scale(1.1);
+          transform: rotateY(-150deg) scale(1.1);
+  -webkit-box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+}
+
+.book .book__controller:checked ~ .page2 {
+  -webkit-transform: rotateY(-30deg) scale(1.1);
+          transform: rotateY(-30deg) scale(1.1);
+  -webkit-box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+}
+
+.book .book__controller:checked ~ .page3 {
+  -webkit-transform: rotateY(-140deg) scale(1.1);
+          transform: rotateY(-140deg) scale(1.1);
+  -webkit-box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+}
+
+.book .book__controller:checked ~ .page4 {
+  -webkit-transform: rotateY(-40deg) scale(1.1);
+          transform: rotateY(-40deg) scale(1.1);
+  -webkit-box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+}
+
+.book .book__controller:checked ~ .page5 {
+  -webkit-transform: rotateY(-130deg) scale(1.1);
+          transform: rotateY(-130deg) scale(1.1);
+  -webkit-box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+}
+
+.book .book__controller:checked ~ .page6 {
+  -webkit-transform: rotateY(-50deg) scale(1.1);
+          transform: rotateY(-50deg) scale(1.1);
+  -webkit-box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1em 3em 0 rgba(0, 0, 0, 0.2);
+}
+
+.book .book__controller:checked ~ .back {
+  -webkit-transform: rotateY(-20deg) scale(1.1);
+          transform: rotateY(-20deg) scale(1.1);
+}
+
+/* Copyright Text Style */
+.copyright {
+  position: fixed;
+  font-size: 13px;
+  bottom: 2%;
+  margin: 15px;
+}
+
+.copyright__link {
+  color: #d5a20b;
+}
+/*# sourceMappingURL=style.css.map */
